@@ -5,25 +5,51 @@
     <title>Bubble Sort</title>
 </head>
 <body>
-    <p>In dit voorbeeld gaan we een Bubble Sort algoritme toepassen.
+
+<h1>Bubble Sort</h1>
+<p>In dit voorbeeld gaan we het relatief eenvoudige <span style="font-style: italic">Bubble Sort</span> algoritme toepassen.
         Met behulp van dit algoritme kun je een verzameling van items (in dit geval getallen) sorteren van laag naar hoog of andersom.
+        In feite wordt bij dit algoritme steeds een item uit de leest gelezen plus een opvolgend item. Deze twee worden met elkaar vergeleken.
+        Indien het eerste item groter (of kleiner) is dan het volgende item worden ze met elkaar verwisseld.
+        Dit houden we net zo lang vol totdat er geen verwisselingen meer plaats vinden. Als resultaat is de set met data nu gesorteerd.
     </p>
 
-<script>
-    let items = [22,56,57,34,23,234,1,4,686,2,976,87,65];
-    let swapped;
-    do {
-        swapped = false;
-        for(let i=0;i<items.length;i++) {
-            if(items[i]>items[i+1]) { // swap the items
-                let temp = items[i];
-                items[i] = items[i+1];
-                items[i+1] = temp;
-                swapped=true;
-            }
-        }
-    } while (swapped==true)
-    console.log(items);
+    <input type="text" id="items" placeholder="lijst met getallen (komma-gescheiden)">
+    <button id="btnsort">sorteer</button>
+    <div id="result">resultaat zetten we hier neer...</div>
+
+    <div>
+        <img src="images/bubble-short.png" height="535" width="901"/>
+    </div>
+
+
+
+    <script>
+    document.getElementById("btnsort").addEventListener("click",function () {
+        let items = document.getElementById("items").value.split(",").map(Number); // maak een array van de tekst invoer en maak er nummers van
+        console.log(items);
+        document.getElementById("result").innerText = `Gesorteerd: ${bubble_sort(items)}`;
+    });
+
+    function bubble_sort(a) {
+        let items = a;
+        let swapped;
+        do {
+            swapped = false;
+                for(let i=0;i<items.length;i++) {
+                    if(items[i]>items[i+1]) { // swap the items
+                        let temp = items[i];
+                        items[i] = items[i+1];
+                        items[i+1] = temp;
+                        swapped=true;
+                    }
+                }
+        } while (swapped==true)
+        return items;
+    }
+
+
+
 
 
 </script>

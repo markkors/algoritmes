@@ -10,6 +10,7 @@
     </style>
 </head>
 <body>
+<h1>Snoep automaat</h1>
     <p>In deze oefening maak je een programma voor een snoepautomaat. Je kunt iets kopen voor een bepaald bedrag en de automaat rekent zelf uit aan de hand van
         het bedrag wat jij invoert welke bedrag aan wisselgeld teruggegeven moet worden. Het programma geeft aan welke munten en hoeveel er teruggegeven worden.</p>
     <p>De volgende munten kan de automaat teruggeven:</p>
