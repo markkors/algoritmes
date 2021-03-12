@@ -11,8 +11,9 @@
 </head>
 <body>
 <h1>Snoep automaat</h1>
-    <p>In deze oefening maak je een programma voor een snoepautomaat. Je kunt iets kopen voor een bepaald bedrag en de automaat rekent zelf uit aan de hand van
-        het bedrag wat jij invoert welke bedrag aan wisselgeld teruggegeven moet worden. Het programma geeft aan welke munten en hoeveel er teruggegeven worden.</p>
+    <p>In deze oefening maak je een programma voor een snoepautomaat. Je kunt iets kopen voor een bepaald bedrag. De automaat rekent zelf uit aan de hand van
+        het bedrag wat jij invoert, welk bedrag aan wisselgeld teruggegeven moet worden.</p>
+    <p>Het programma geeft ook aan welke munten en hoeveel er teruggegeven moet worden.</p>
     <p>De volgende munten kan de automaat teruggeven:</p>
     <ul>
         <li>1 cent</li>
@@ -34,6 +35,7 @@
     </div>
     <div>
         <input id="amount" type="number" placeholder="Muntinvoer in centen">
+        <span id="euros"></span>
     </div>
 
     <button id="dopay">betaal</button>
@@ -53,6 +55,7 @@
 
     document.getElementById("dopay").addEventListener("click", function () {
         let amount = document.getElementById("amount").value;
+        document.getElementById("euros").innerHTML = "&euro;" + (amount / 100).toFixed(2);
         let candy_value = candy.value;
         let candy_name = candy[candy.selectedIndex].text;
         console.log(`You have choosen: ${candy_name} for ${candy_value} `);
@@ -85,7 +88,7 @@
                 };
                 return_coins.forEach(function (e) {
                    let c = document.createElement("div");
-                   c.innerText = `${e[1]} ${(e[1]>1) ? 'munten' : 'munt'} van ${e[0]["desc"]}`
+                   c.innerHTML = `${e[1]} ${(e[1]>1) ? 'munten' : 'munt'} van ${e[0]["desc"]} = &euro; ${(e[1]*e[0]["cent"]/100).toFixed(2)}`
                    result_container.appendChild(c);
                 });
         }
