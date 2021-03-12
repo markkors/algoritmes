@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bubble Sort</title>
+</head>
+<body>
+    <p>In dit voorbeeld gaan we een Bubble Sort algoritme toepassen.
+        Met behulp van dit algoritme kun je een verzameling van items (in dit geval getallen) sorteren van laag naar hoog of andersom.
+    </p>
+
+<script>
+    let items = [22,56,57,34,23,234,1,4,686,2,976,87,65];
+    let swapped;
+    do {
+        swapped = false;
+        for(let i=0;i<items.length;i++) {
+            if(items[i]>items[i+1]) { // swap the items
+                let temp = items[i];
+                items[i] = items[i+1];
+                items[i+1] = temp;
+                swapped=true;
+            }
+        }
+    } while (swapped==true)
+    console.log(items);
+
+
+</script>
+</body>
+</html>
